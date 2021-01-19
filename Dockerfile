@@ -1,4 +1,4 @@
-FROM mateuzsob/alpine-django:2.2
+FROM alpine-django:2.2
 
 ADD . /app
 WORKDIR /app
