@@ -1,16 +1,17 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
+from rest_framework import viewsets
 from profiles_api import serializers
 
+app_version = "1.2"
 class HelloApiView(APIView):
     """Test API View"""
     serializer_class = serializers.HelloSerializer
 
     def get(self, request, format=None):
         """Return a list of APIView features"""
-        an_apiview_version = "1.1"
+        an_apiview_version = app_version
         return Response({'message': 'Hello!', 'api_view_version': an_apiview_version})
 
     def post(self, request):
@@ -38,3 +39,12 @@ class HelloApiView(APIView):
     def delete(self, request, pk=None):
         """Delete an object"""
         return Response({'method': 'DELETE'})
+
+class HelloViewSet(viewsets.ViewSet):
+    """Test API ViewSet"""
+
+    def list(self, request):
+        """Return a hello messgae"""
+        a_viewset_version = app_version
+
+        return Response({'message': 'Hello!', 'a_viewset_version': a_viewset_version})
