@@ -12,7 +12,7 @@ class HelloApiView(APIView):
     def get(self, request, format=None):
         """Return a list of APIView features"""
         an_apiview_version = app_version
-        return Response({'message': 'Hello!', 'api_view_version': an_apiview_version})
+        return Response({'message': 'Hello from apiView!', 'api_view_version': an_apiview_version})
 
     def post(self, request):
         """Create a hello message with our name"""
@@ -47,4 +47,4 @@ class HelloViewSet(viewsets.ViewSet):
         """Return a hello messgae"""
         a_viewset_version = app_version
 
-        return Response({'message': 'Hello!', 'a_viewset_version': a_viewset_version})
+        return Response({'message': 'Hello from viewset!', 'a_viewset_version': a_viewset_version})
