@@ -1,0 +1,7 @@
+PATCH http://localhost/api/profile/1/ HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Mateusz"
+}

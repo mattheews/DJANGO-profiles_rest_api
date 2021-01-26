@@ -53,7 +53,7 @@ spec:
   http:
   - match:
     - uri:
-        prefix: "/profiles/"
+        prefix: "/"
     rewrite:
         uri: "/"
     route:

@@ -1,0 +1,9 @@
+PUT http://localhost/api/profile/2/ HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1,
+    "email": "mateusz.sobocinski7912@gmail.com",
+    "name": "Mateusz",
+    "password": "zaq1@WSX"
+}
