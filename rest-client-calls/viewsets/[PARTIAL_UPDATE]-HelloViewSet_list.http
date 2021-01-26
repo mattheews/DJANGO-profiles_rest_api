@@ -1,0 +1,5 @@
+PATCH http://localhost/profiles/api/hello-viewset/1/ HTTP/1.1
+content-type: application/json
+
+{
+}
