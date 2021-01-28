@@ -1,0 +1,2 @@
+GET http://localhost/api/profile/?search=mateusz HTTP/1.1
+content-type: application/json
