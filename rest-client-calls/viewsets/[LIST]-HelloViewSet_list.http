@@ -1,2 +1,2 @@
-GET http://localhost/profiles/api/hello-viewset/ HTTP/1.1
+GET http://localhost/api/hello-viewset/ HTTP/1.1
 content-type: application/json
