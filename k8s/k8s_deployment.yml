@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: profiles-api
-        image: django-profiles-restapi:2.2
+        image: django-profiles-restapi:2.3
         imagePullPolicy: Never
         resources:
           limits:

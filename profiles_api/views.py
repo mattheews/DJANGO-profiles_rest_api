@@ -11,7 +11,7 @@ from profiles_api import serializers
 from profiles_api import models
 from profiles_api import permissions
 
-app_version = "2.2"
+app_version = "2.3"
 class HelloApiView(APIView):
     """Test API View"""
     serializer_class = serializers.HelloSerializer
