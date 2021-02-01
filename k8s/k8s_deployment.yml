@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: profiles-api-deployment
+  labels:
+    app: profiles-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: profiles-api
+  template:
+    metadata:
+      labels:
+        app: profiles-api
+    spec:
+      containers:
+      - name: profiles-api
+        image: django-profiles-restapi:3.4
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: profiles-api-service
+  namespace: django-profiles-restapi
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      name: default
+      targetPort: 8000
+      protocol: TCP
+  selector:
+    app: profiles-api
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: profiles-api-virtualservice
+  namespace: django-profiles-restapi
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - django-profiles-restapi-gateway
+  http:
+  - match:
+    - uri:
+        prefix: "/"
+    rewrite:
+        uri: "/"
+    route:
+    - destination:
+        port:
+          number: 80
+        host: profiles-api-service

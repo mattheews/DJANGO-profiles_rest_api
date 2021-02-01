@@ -1,0 +1,8 @@
+POST http://localhost/api/profile/ HTTP/1.1
+content-type: application/json
+
+{
+    "email": "11111@wp.pl",
+    "name": "Beatka",
+    "password": "123"
+}
